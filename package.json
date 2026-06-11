@@ -1,0 +1,53 @@
+{
+  "name": "cloakbrowser-playwright-cli",
+  "version": "0.1.0",
+  "description": "Drop-in playwright-cli wrapper that uses CloakBrowser stealth Chromium — bypasses bot detection for AI agent browser automation",
+  "type": "module",
+  "bin": {
+    "playwright-cli": "./dist/index.js",
+    "pwcli": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "playwright",
+    "playwright-cli",
+    "cloakbrowser",
+    "stealth",
+    "browser",
+    "automation",
+    "antidetect",
+    "bot-detection",
+    "fingerprint",
+    "cloudflare",
+    "recaptcha",
+    "headless",
+    "ai-agent",
+    "claude-code"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chensemtest-blip/cloakbrowser-playwright-cli"
+  },
+  "homepage": "https://github.com/chensemtest-blip/cloakbrowser-playwright-cli#readme",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "@playwright/cli": "latest",
+    "cloakbrowser": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.7.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  }
+}
