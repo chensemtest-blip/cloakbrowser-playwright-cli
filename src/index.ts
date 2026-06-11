@@ -116,7 +116,6 @@ async function main(): Promise<void> {
     // Dynamic import — only loads cloakbrowser when stealth is actually requested
     const { ensureBinary, getDefaultStealthArgs } = await import("cloakbrowser");
 
-    process.stderr.write("[stealth] Downloading / verifying CloakBrowser binary...\n");
     const executablePath = await ensureBinary();
 
     const args = getDefaultStealthArgs();
@@ -134,8 +133,6 @@ async function main(): Promise<void> {
       headless,
       ...(proxy ? { proxy: parseProxy(proxy) } : {}),
     });
-
-    process.stderr.write(`[stealth] Binary: ${executablePath}\n`);
 
     // Insert --config right after the command word
     const cmdIdx = clean.indexOf(command);

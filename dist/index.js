@@ -95,7 +95,6 @@ async function main() {
     if (stealth && command && SESSION_CMDS.has(command) && !hasConfig) {
         // Dynamic import — only loads cloakbrowser when stealth is actually requested
         const { ensureBinary, getDefaultStealthArgs } = await import("cloakbrowser");
-        process.stderr.write("[stealth] Downloading / verifying CloakBrowser binary...\n");
         const executablePath = await ensureBinary();
         const args = getDefaultStealthArgs();
         const locale = process.env.CLOAKBROWSER_LOCALE;
@@ -112,7 +111,6 @@ async function main() {
             headless,
             ...(proxy ? { proxy: parseProxy(proxy) } : {}),
         });
-        process.stderr.write(`[stealth] Binary: ${executablePath}\n`);
         // Insert --config right after the command word
         const cmdIdx = clean.indexOf(command);
         finalArgv = [
